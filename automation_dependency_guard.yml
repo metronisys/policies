@@ -1,0 +1,25 @@
+{
+  "policy": {
+    "id": "automation-dependency-guard-v1",
+    "name": "Automation Dependency Guard",
+    "description": "Prevents over-automation that removes human judgment.",
+    "applies_to": ["task_execution"],
+    "conditions": {
+      "automation_frequency_per_hour": {
+        "greater_than": 20
+      },
+      "human_involvement": {
+        "equals": "none"
+      }
+    },
+    "decision": {
+      "action": "THROTTLE",
+      "limit_per_hour": 10,
+      "reason": "Excessive autonomous execution detected"
+    },
+    "audit": {
+      "log_decision": true,
+      "severity": "high"
+    }
+  }
+}
