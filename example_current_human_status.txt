@@ -1,0 +1,11 @@
+context = {
+    "focus_mode": "deep",
+    "energy_level": 0.35,
+    "automation_frequency_per_hour": 25,
+    "human_involvement": "none",
+    "task": {
+        "interruptive": True,
+        "cognitive_load": "high",
+        "conflicts_with_values": False
+    }
+}
