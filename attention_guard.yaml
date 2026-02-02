@@ -1,0 +1,28 @@
+policy:
+  id: attention-guard-v1
+  name: Attention Guard
+  description: >
+    Prevents AI agents from interrupting or escalating tasks
+    when the human is in deep focus mode.
+
+  applies_to:
+    - task_execution
+    - notification
+    - escalation
+
+  conditions:
+    focus_mode:
+      equals: deep
+    task:
+      interruptive: true
+
+  decision:
+    action: BLOCK
+    reason: "User is in deep focus mode"
+    retry:
+      allowed: true
+      after_minutes: 45
+
+  audit:
+    log_decision: true
+    severity: medium
