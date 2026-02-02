@@ -1,0 +1,8 @@
+Governance decision:
+{
+  'action': 'MODIFY',
+  'modification': {
+    'reduce_scope': True,
+    'suggestion': 'Offer smaller task or rest reminder'
+  }
+}
