@@ -1,0 +1,24 @@
+policy:
+  id: energy-guard-v1
+  name: Energy Guard
+  description: >
+    Reduces or blocks automation when user energy levels are low.
+
+  applies_to:
+    - task_execution
+
+  conditions:
+    energy_level:
+      less_than: 0.4
+    task:
+      cognitive_load: high
+
+  decision:
+    action: MODIFY
+    modification:
+      reduce_scope: true
+      suggestion: "Offer smaller task or rest reminder"
+
+  audit:
+    log_decision: true
+    severity: high
