@@ -1,0 +1,21 @@
+policy:
+  id: identity-guard-v1
+  name: Identity Guard
+  description: >
+    Ensures tasks align with declared human values and goals.
+
+  applies_to:
+    - task_execution
+    - goal_setting
+
+  conditions:
+    task:
+      conflicts_with_values: true
+
+  decision:
+    action: REQUIRE_CONFIRMATION
+    reason: "Task conflicts with declared values or priorities"
+
+  audit:
+    log_decision: true
+    severity: critical
